@@ -14,7 +14,7 @@
     <name>order_service</name>
     <description>Orders and checkout for the Kade marketplace</description>
     <properties>
-        <java.version>25</java.version>
+        <java.version>21</java.version>
         <spring-cloud.version>2025.1.2</spring-cloud.version>
     </properties>
     <dependencies>
