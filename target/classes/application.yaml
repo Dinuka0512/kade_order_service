@@ -8,7 +8,7 @@ spring:
     date-format: "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
     time-zone: "UTC"
   datasource:
-    url: "jdbc:postgresql://localhost:5432/kade_orders"
+    url: "jdbc:postgresql://localhost:5433/kade_orders"
     username: postgres
     password: "1212"
   jpa:

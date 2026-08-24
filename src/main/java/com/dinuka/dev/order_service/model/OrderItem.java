@@ -23,6 +23,11 @@ public class OrderItem {
     @JsonSerialize(using = ToStringSerializer.class)
     private Long productId;
 
+    /** Storefront this line item was bought from (used for vendor scoping). */
+    @Column(name = "vendor_id")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long vendorId;
+
     private String name;
     private String image;
     private double price;
@@ -30,8 +35,9 @@ public class OrderItem {
 
     public OrderItem() {}
 
-    public OrderItem(Long productId, String name, String image, double price, int qty) {
+    public OrderItem(Long productId, Long vendorId, String name, String image, double price, int qty) {
         this.productId = productId;
+        this.vendorId = vendorId;
         this.name = name;
         this.image = image;
         this.price = price;
@@ -46,6 +52,9 @@ public class OrderItem {
 
     public Long getProductId() { return productId; }
     public void setProductId(Long productId) { this.productId = productId; }
+
+    public Long getVendorId() { return vendorId; }
+    public void setVendorId(Long vendorId) { this.vendorId = vendorId; }
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }

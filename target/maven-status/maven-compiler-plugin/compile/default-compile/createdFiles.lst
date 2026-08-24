@@ -1,14 +1,13 @@
 com\dinuka\dev\order_service\model\Order.class
 com\dinuka\dev\order_service\dto\DashboardStatsResponse.class
 com\dinuka\dev\order_service\model\OrderItem.class
-com\dinuka\dev\order_service\config\DataInitializer.class
 com\dinuka\dev\order_service\dto\OrderStatusInput.class
 com\dinuka\dev\order_service\dto\PlaceOrderRequest$AddressInput.class
 com\dinuka\dev\order_service\config\DataSourceConfig.class
-com\dinuka\dev\order_service\config\CorsConfig.class
 com\dinuka\dev\order_service\dto\PlaceOrderRequest.class
 com\dinuka\dev\order_service\dto\PlaceOrderRequest$OrderItemInput.class
 com\dinuka\dev\order_service\config\GlobalExceptionHandler.class
+com\dinuka\dev\order_service\client\ProductServiceClient$VendorRef.class
 com\dinuka\dev\order_service\client\ProductServiceClient$ProductInfo.class
 com\dinuka\dev\order_service\repository\OrderRepository.class
 com\dinuka\dev\order_service\dto\ErrorResponse.class

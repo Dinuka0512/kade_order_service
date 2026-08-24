@@ -37,8 +37,8 @@ public class DataInitializer implements CommandLineRunner {
         order1.setShippingFee(600);
         order1.setTotal(77500);
 
-        OrderItem item1a = new OrderItem(1L, "Aurora Wireless Headphones", img.formatted("aurora-headphones"), 68500, 1);
-        OrderItem item1b = new OrderItem(10L, "Organic Ceylon Tea Sampler", img.formatted("tea-sampler"), 4200, 2);
+        OrderItem item1a = new OrderItem(1L, 1L, "Aurora Wireless Headphones", img.formatted("aurora-headphones"), 68500, 1);
+        OrderItem item1b = new OrderItem(10L, 4L, "Organic Ceylon Tea Sampler", img.formatted("tea-sampler"), 4200, 2);
         item1a.setOrder(order1);
         item1b.setOrder(order1);
         order1.getItems().add(item1a);
@@ -59,8 +59,8 @@ public class DataInitializer implements CommandLineRunner {
         order2.setShippingFee(400);
         order2.setTotal(12500);
 
-        OrderItem item2a = new OrderItem(4L, "Linen Resort Shirt", img.formatted("linen-shirt"), 8900, 1);
-        OrderItem item2b = new OrderItem(6L, "Canvas Tote - Coconut Grove", img.formatted("canvas-tote"), 3200, 1);
+        OrderItem item2a = new OrderItem(4L, 2L, "Linen Resort Shirt", img.formatted("linen-shirt"), 8900, 1);
+        OrderItem item2b = new OrderItem(6L, 2L, "Canvas Tote - Coconut Grove", img.formatted("canvas-tote"), 3200, 1);
         item2a.setOrder(order2);
         item2b.setOrder(order2);
         order2.getItems().add(item2a);
@@ -81,7 +81,7 @@ public class DataInitializer implements CommandLineRunner {
         order3.setShippingFee(600);
         order3.setTotal(45600);
 
-        OrderItem item3a = new OrderItem(3L, "Nimbus Smart Watch", img.formatted("smart-watch"), 45000, 1);
+        OrderItem item3a = new OrderItem(3L, 1L, "Nimbus Smart Watch", img.formatted("smart-watch"), 45000, 1);
         item3a.setOrder(order3);
         order3.getItems().add(item3a);
         orderRepository.save(order3);

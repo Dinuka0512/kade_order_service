@@ -25,6 +25,15 @@ public class GlobalExceptionHandler {
             return ResponseEntity.status(HttpStatus.CONFLICT)
                     .body(new ErrorResponse(msg, 409));
         }
+        if (lower.contains("sign in") || lower.contains("session")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(new ErrorResponse(msg, 401));
+        }
+        if (lower.contains("permission") || lower.contains("only ")
+                || lower.contains("required") || lower.contains("own ")) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .body(new ErrorResponse(msg, 403));
+        }
         return ResponseEntity.badRequest()
                 .body(new ErrorResponse(msg, 400));
     }
