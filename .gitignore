@@ -61,4 +61,4 @@ replay_pid*
 *.p12
 *.jks
 credentials.json
-service-account*.json
+service-account*.jsontarget/
