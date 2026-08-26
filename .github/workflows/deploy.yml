@@ -39,6 +39,7 @@ jobs:
           username: ${{ secrets.VM_USERNAME }}
           key: ${{ secrets.VM_SSH_KEY }}
           port: ${{ secrets.VM_PORT }}
+
           script: |
             cd /home/dinuka0512/kade_be/kade_order_service
 
@@ -56,19 +57,24 @@ jobs:
 
             echo "Starting new Order Service..."
 
-            nohup "$JAVA" -jar target/order_service-0.0.1-SNAPSHOT.jar > order.log 2>&1 < /dev/null &
+            nohup "$JAVA" \
+              -jar target/order_service-0.0.1-SNAPSHOT.jar \
+              > order.log 2>&1 < /dev/null &
 
             echo "Waiting for Order Service to start..."
 
-            sleep 60
+            for i in {1..30}; do
+              echo "Attempt $i/30..."
 
-            echo "Checking Order Service..."
+              if curl -s -f http://localhost:8003/orders > /dev/null; then
+                echo "Order Service deployed successfully!"
+                exit 0
+              fi
 
-            if curl -f http://localhost:8003 > /dev/null; then
-              echo "Order Service deployed successfully!"
-            else
-              echo "Order Service failed to start!"
-              echo "========== ORDER LOG =========="
-              tail -100 order.log
-              exit 1
-            fi
+              sleep 2
+            done
+
+            echo "Order Service failed to start!"
+            echo "========== ORDER LOG =========="
+            tail -100 order.log
+            exit 1
