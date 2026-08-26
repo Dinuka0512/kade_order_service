@@ -58,7 +58,9 @@ jobs:
 
             nohup "$JAVA" -jar target/order_service-0.0.1-SNAPSHOT.jar > order.log 2>&1 < /dev/null &
 
-            sleep 20
+            echo "Waiting for Order Service to start..."
+
+            sleep 60
 
             echo "Checking Order Service..."
 
@@ -67,6 +69,6 @@ jobs:
             else
               echo "Order Service failed to start!"
               echo "========== ORDER LOG =========="
-              tail -50 order.log
+              tail -100 order.log
               exit 1
             fi
